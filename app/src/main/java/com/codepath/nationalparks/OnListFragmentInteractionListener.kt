@@ -1,5 +1,7 @@
 package com.codepath.nationalparks
 
+import NationalPark
+
 /**
  * This interface is used by the [NationalParksRecyclerViewAdapter] to ensure
  * it has an appropriate Listener.
