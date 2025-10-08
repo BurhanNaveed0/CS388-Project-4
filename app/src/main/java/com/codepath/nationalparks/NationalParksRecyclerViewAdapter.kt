@@ -1,6 +1,7 @@
 package com.codepath.nationalparks
 
 import NationalPark
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -60,9 +61,26 @@ class NationalParksRecyclerViewAdapter(
 
         // Sets up click listener for this park item
         holder.mView.setOnClickListener {
-            holder.mItem?.let { park ->
-                mListener?.onItemClick(park)
+            val context = holder.mView.context
+
+            // If your park model includes known_for info, grab the first one:
+            val topKnownFor = park.known_for?.firstOrNull()
+            val movieTitle = topKnownFor?.title ?: "No title available"
+            val movieOverview = topKnownFor?.overview ?: "No overview available"
+            val moviePosterUrl = "https://image.tmdb.org/t/p/w500/" + (topKnownFor?.posterPath ?: "")
+
+            val intent = Intent(context, ActorDetailActivity::class.java).apply {
+                putExtra("name", park.name)
+                putExtra("actorImageUrl", imageUrl)
+                putExtra("movieTitle", movieTitle)
+                putExtra("movieImageUrl", moviePosterUrl)
+                putExtra("movieOverview", movieOverview)
             }
+
+            context.startActivity(intent)
+
+            // still notify listener if needed (for other logic)
+            mListener?.onItemClick(park)
         }
     }
 
