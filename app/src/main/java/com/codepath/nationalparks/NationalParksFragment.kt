@@ -63,7 +63,7 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
 
         // Using the client, perform the HTTP request
         client[
-            "https://api.themoviedb.org/3/movie/now_playing",
+            "https://api.themoviedb.org/3/person/popular",
             params,
             object : JsonHttpResponseHandler()
         {

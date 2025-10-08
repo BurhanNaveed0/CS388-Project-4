@@ -2,15 +2,15 @@ import com.google.gson.annotations.SerializedName
 
 class NationalPark {
     @JvmField
-    @SerializedName("original_title")
+    @SerializedName("name")
     var name: String? = null
 
     @JvmField
-    @SerializedName("overview")
+    @SerializedName("known_for_department")
     var description: String? = null
 
 
-    @SerializedName("poster_path")
+    @SerializedName("profile_path")
     var image_path: String? = null
 
     class Image {
