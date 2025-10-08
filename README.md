@@ -2,7 +2,7 @@
 
 Submitted by: Burhan Naveed
 
- Flixter+ is a movie browsing app that allows users to browse ... [TODO] 
+ Flixter+ is a movie browsing app that allows users to browse famous actors and see what films they are most famous for.
 
 Time spent: **3** hours spent in total
 
