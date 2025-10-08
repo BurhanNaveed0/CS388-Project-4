@@ -35,7 +35,6 @@ class NationalParksRecyclerViewAdapter(
         val mParkName: TextView = mView.findViewById(id.park_name) as TextView
 
         val mParkDescription: TextView = mView.findViewById(id.park_description) as TextView
-        val mParkLocation: TextView = mView.findViewById(R.id.park_location)
         val mParkImage: ImageView = mView.findViewById(R.id.park_image)
 
         override fun toString(): String {
@@ -48,11 +47,11 @@ class NationalParksRecyclerViewAdapter(
 
         // TODO: Step 4b - Bind the park data to the views
         holder.mParkName.text = park.name
-        holder.mParkLocation.text = park.location
         holder.mParkDescription.text = park.description
 
         // TODO: Step 4c - Use Glide to load the first image
-        val imageUrl = park.imageUrl
+        val imageUrl = "https://image.tmdb.org/t/p/w500/" + park.image_path
+
         Glide.with(holder.mView)
             .load(imageUrl)
             .centerInside()

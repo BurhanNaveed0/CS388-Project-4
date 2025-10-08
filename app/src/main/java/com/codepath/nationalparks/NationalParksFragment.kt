@@ -23,7 +23,7 @@ import org.json.JSONArray
 // --------------------------------//
 // CHANGE THIS TO BE YOUR API KEY  //
 // --------------------------------//
-private const val API_KEY = "hsGHhobvUfXWadeHOA3GSKpGAnnuB5cJcFa2vTbp"
+private const val API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
 
 /*
  * The class for the only fragment in the app, which contains the progress bar,
@@ -63,7 +63,7 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
 
         // Using the client, perform the HTTP request
         client[
-            "https://developer.nps.gov/api/v1/parks",
+            "https://api.themoviedb.org/3/movie/now_playing",
             params,
             object : JsonHttpResponseHandler()
         {
@@ -80,7 +80,7 @@ class NationalParksFragment : Fragment(), OnListFragmentInteractionListener {
                 progressBar.hide()
 
                 //TODO - Parse JSON into Models
-                val dataJSON = json.jsonObject.get("data") as JSONArray
+                val dataJSON = json.jsonObject.get("results") as JSONArray
                 val parksRawJSON = dataJSON.toString()
 
                 // Create a Gson instance to help parse the raw JSON
